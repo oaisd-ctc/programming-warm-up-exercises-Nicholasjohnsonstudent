@@ -7,20 +7,34 @@ namespace NoviceChallenges
         static void Main(string[] args)
         {
             // Use the Main method to test your functions.
+            string a = "Hello There";
+            Console.WriteLine(ReverseString(a));
         }
 
         // 1. Return the sum of two numbers.
         public static int Add(int a, int b)
         {
             // TODO: Implement this method.
-            return 0;
+            int c = a + b;
+            return c;
         }
 
         // 2. Given an integer, return true if it's even, else return false.
         public static bool IsEven(int number)
         {
             // TODO: Implement this method.
-            return false;
+            bool isEven;
+            int mode = number % 2;
+            if (mode == 0)
+            {
+                isEven = true;
+            }
+            else 
+            {
+                isEven = false;
+            }
+            
+            return isEven;
         }
 
         // 3. Return the largest of three numbers.
@@ -28,14 +42,21 @@ namespace NoviceChallenges
         {
             // HINT: You might want to use Math.Max function.
             // TODO: Implement this method.
-            return 0;
+            int largest = 0;
+            Math.Max(a, b);
+            largest = Math.Max(Math.Max(a,b), c);
+
+            return largest;
         }
 
         // 4. Return the length of the given string.
         public static int StringLength(string s)
         {
             // TODO: Implement this method.
-            return 0;
+            char[] a = s.ToCharArray();
+            int length = 0;
+            for (int i = 1; i <= a.Length; i++){length = i;}
+            return length;
         }
 
         // 5. Return true if the string starts with "Hello", otherwise return false.
@@ -43,7 +64,18 @@ namespace NoviceChallenges
         {
             // HINT: Use the string method "StartsWith".
             // TODO: Implement this method.
-            return false;
+            bool doesMatch = true;
+            char[] twine = s.ToCharArray();
+            char[] g = {'H', 'e', 'l', 'l', 'o'};
+            for (int i = 0; i < g.Length; i++)
+            {
+                if (g[i] != twine[i])
+                {
+                    doesMatch = false;
+                    break;
+                }
+            }
+            return doesMatch;
         }
 
         // 6. Reverse a given string.
@@ -51,7 +83,19 @@ namespace NoviceChallenges
         {
             char[] charArray = s.ToCharArray();
             // TODO: Reverse the charArray.
-            return new string(charArray);
+            int arrayLength = charArray.Length;
+            char[] arr;
+            int o = 0;
+            Console.WriteLine(charArray.Length);
+            for (int i = arrayLength - 1; i >= 0; i--)
+            {   
+                arr[] = charArray[i];
+                Console.WriteLine(charArray[i]);
+                o++;
+            }
+            Console.WriteLine(new string(charArray));
+            // return new string(charArray);
+            return "";
         }
 
         // 7. Return the factorial of a number.
