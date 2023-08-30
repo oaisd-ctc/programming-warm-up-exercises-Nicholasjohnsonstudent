@@ -7,8 +7,9 @@ namespace NoviceChallenges
         static void Main(string[] args)
         {
             // Use the Main method to test your functions.
-            string a = "Hello There";
-            Console.WriteLine(ReverseString(a));
+            string a = "racecar";
+            char c = 'c';
+            Console.WriteLine(CharCount(a, c));
         }
 
         // 1. Return the sum of two numbers.
@@ -84,26 +85,27 @@ namespace NoviceChallenges
             char[] charArray = s.ToCharArray();
             // TODO: Reverse the charArray.
             int arrayLength = charArray.Length;
-            char[] arr;
+            char[] arr = new char[charArray.Length];
             int o = 0;
-            Console.WriteLine(charArray.Length);
             for (int i = arrayLength - 1; i >= 0; i--)
             {   
-                arr[] = charArray[i];
-                Console.WriteLine(charArray[i]);
+                arr[o] = charArray[i];
                 o++;
             }
-            Console.WriteLine(new string(charArray));
-            // return new string(charArray);
-            return "";
+            return new string(arr);
         }
 
         // 7. Return the factorial of a number.
         public static int Factorial(int n)
         {
+            int fact = n;
             if (n == 0) return 1;
             // TODO: Calculate the factorial.
-            return 0;
+            for (int i = n - 1; i > 0; i--)
+            {
+                fact = fact * i;
+            }
+            return fact;
         }
 
         // 8. Check if a number is a prime number.
@@ -115,15 +117,25 @@ namespace NoviceChallenges
                 if (number % i == 0) return false;
             }
             // TODO: Return the correct boolean value.
-            return false;
+            return true;
         }
 
         // 9. Return the nth Fibonacci number.
         public static int Fibonacci(int n)
         {
+            int fibNumber = 0;
+            int a = 0;
+            int b = 1;
             if (n <= 1) return n;
             // TODO: Calculate the nth Fibonacci number.
-            return 0;
+            
+            for (int i = n-1; i > 0; i--)
+            {
+                fibNumber = a+b;
+                a = b;
+                b = fibNumber;
+            }
+            return fibNumber;
         }
 
         // 10. Given an array of integers, return the largest number.
@@ -132,6 +144,10 @@ namespace NoviceChallenges
             int largest = numbers[0];
             for (int i = 1; i < numbers.Length; i++)
             {
+                if (numbers[i] > largest)
+                {
+                    largest = numbers[i];
+                }
                 // TODO: Find the largest number in the array.
             }
             return largest;
@@ -140,8 +156,19 @@ namespace NoviceChallenges
         // 11. Check if a string is a palindrome (reads the same forward and backward).
         public static bool IsPalindrome(string s)
         {
+            char[] arr = s.ToCharArray();
+            int a = arr.Length - 1;
+            Console.WriteLine(arr.Length);
             // TODO: Determine if the string is a palindrome.
-            return false;
+            for (int i = 0; i < a; i++)
+            {
+                if (arr[i] != arr[a])
+                {
+                    return false;
+                }
+                a--;
+            }
+            return true;
         }
 
         // 12. Given an array of integers, return the sum of its elements.
@@ -149,20 +176,33 @@ namespace NoviceChallenges
         {
             int sum = 0;
             // TODO: Calculate the sum of the array's elements.
+            foreach (int number in numbers)
+            {
+                sum+=number;
+            }
             return sum;
         }
 
         // 13. Given a string, count how many times a specified character appears in it.
         public static int CharCount(string s, char c)
         {
+            char[] arr = s.ToCharArray();
             int count = 0;
             // TODO: Count how many times character c appears in string s.
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (arr[i] == c)
+                {
+                    count++;
+                }
+            }
             return count;
         }
 
         // 14. Given two strings, return a new string that is the concatenation of the two strings with a space in between.
         public static string ConcatenateStrings(string str1, string str2)
         {
+            
             // TODO: Concatenate the two strings with a space in between.
             return "";
         }
