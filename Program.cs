@@ -8,8 +8,54 @@ namespace NoviceChallenges
         {
             // Use the Main method to test your functions.
             string a = "racecar";
+            string b = "Driving";
+            string ab = "Hello there";
             char c = 'c';
-            Console.WriteLine(CharCount(a, c));
+            int d = 35;
+            int e = 23;
+            int f = 24;
+            int g = 9;
+            int[] h = {1,4,3,76,44,3,5,4};
+            Console.WriteLine(d + " + " + e + " = " + Add(d,e));
+
+            Console.WriteLine(d + " is even = " + IsEven(d));
+
+            Console.WriteLine(MaxOfThree(d,e,f) + " is the max of " + d + ", " + e + ", and " + f);
+
+            Console.WriteLine(b + " is " + StringLength(b) + "characters long");
+
+            Console.WriteLine(ab + " starts with 'Hello' = " + StartsHello(ab));
+
+            Console.WriteLine(ab + " reversed is " + ReverseString(ab));
+
+            Console.WriteLine(g + "! is " + Factorial(g));
+            
+            Console.WriteLine(e + " is a prime number = " + IsPrime(e));
+
+            Console.WriteLine("The " + g + "th number in the fibonacci sequence is " + Fibonacci(g));
+
+            Console.Write("The Largest number in ");
+            foreach (int num in h)
+            {
+                Console.Write(num + ", ");
+            }
+            Console.Write(" is " + LargestInArray(h));
+            Console.WriteLine();
+
+            Console.WriteLine(a + " is a palindrome = " + IsPalindrome(a));
+
+            Console.Write("The sum of ");
+            foreach (int num in h)
+            {
+                Console.Write(num + ", ");
+            }
+            Console.WriteLine("is " + ArraySum(h));
+
+            Console.WriteLine("The amount of " + c + "s in " + a + " are " + CharCount(a, c));
+
+            Console.WriteLine("The combination of " + a + " and " + b + " is " + ConcatenateStrings(a,b));
+
+            Console.WriteLine(b + " with swaped ends is " + SwapEnds(b));
         }
 
         // 1. Return the sum of two numbers.
@@ -204,17 +250,22 @@ namespace NoviceChallenges
         {
             
             // TODO: Concatenate the two strings with a space in between.
-            return "";
+            return str1 + " " + str2;
         }
 
         // 15. Given a string, return a new string where the first and last characters have been swapped.
         public static string SwapEnds(string s)
         {
             if (s.Length <= 1) return s;
+            char[] charS = s.ToCharArray();
             char firstChar = s[0];
             char lastChar = s[s.Length - 1];
+            char[] newArr = charS;
+            newArr[0] = lastChar;
+            newArr[s.Length - 1] = firstChar;
+            
             // TODO: Swap the first and last characters and return the modified string.
-            return "";
+            return new string(newArr);
         }
     }
 }
