@@ -15,12 +15,12 @@ namespace NoviceChallenges
             int e = 23;
             int f = 24;
             int g = 9;
-            int[] h = {1,4,3,76,44,3,5,4};
-            Console.WriteLine(d + " + " + e + " = " + Add(d,e));
+            int[] h = { 1, 4, 3, 76, 44, 3, 5, 4 };
+            Console.WriteLine(d + " + " + e + " = " + Add(d, e));
 
             Console.WriteLine(d + " is even = " + IsEven(d));
 
-            Console.WriteLine(MaxOfThree(d,e,f) + " is the max of " + d + ", " + e + ", and " + f);
+            Console.WriteLine(MaxOfThree(d, e, f) + " is the max of " + d + ", " + e + ", and " + f);
 
             Console.WriteLine(b + " is " + StringLength(b) + "characters long");
 
@@ -29,7 +29,7 @@ namespace NoviceChallenges
             Console.WriteLine(ab + " reversed is " + ReverseString(ab));
 
             Console.WriteLine(g + "! is " + Factorial(g));
-            
+
             Console.WriteLine(e + " is a prime number = " + IsPrime(e));
 
             Console.WriteLine("The " + g + "th number in the fibonacci sequence is " + Fibonacci(g));
@@ -53,7 +53,7 @@ namespace NoviceChallenges
 
             Console.WriteLine("The amount of " + c + "s in " + a + " are " + CharCount(a, c));
 
-            Console.WriteLine("The combination of " + a + " and " + b + " is " + ConcatenateStrings(a,b));
+            Console.WriteLine("The combination of " + a + " and " + b + " is " + ConcatenateStrings(a, b));
 
             Console.WriteLine(b + " with swaped ends is " + SwapEnds(b));
         }
@@ -61,27 +61,13 @@ namespace NoviceChallenges
         // 1. Return the sum of two numbers.
         public static int Add(int a, int b)
         {
-            // TODO: Implement this method.
-            int c = a + b;
-            return c;
+            return a + b;
         }
 
         // 2. Given an integer, return true if it's even, else return false.
         public static bool IsEven(int number)
         {
-            // TODO: Implement this method.
-            bool isEven;
-            int mode = number % 2;
-            if (mode == 0)
-            {
-                isEven = true;
-            }
-            else 
-            {
-                isEven = false;
-            }
-            
-            return isEven;
+            return number % 2 == 0;
         }
 
         // 3. Return the largest of three numbers.
@@ -89,9 +75,7 @@ namespace NoviceChallenges
         {
             // HINT: You might want to use Math.Max function.
             // TODO: Implement this method.
-            int largest = 0;
-            Math.Max(a, b);
-            largest = Math.Max(Math.Max(a,b), c);
+            int largest = Math.Max(Math.Max(a, b), c);
 
             return largest;
         }
@@ -102,43 +86,26 @@ namespace NoviceChallenges
             // TODO: Implement this method.
             char[] a = s.ToCharArray();
             int length = 0;
-            for (int i = 1; i <= a.Length; i++){length = i;}
+            for (int i = 1; i <= a.Length; i++)
+            {
+                length = i;
+            }
             return length;
         }
 
         // 5. Return true if the string starts with "Hello", otherwise return false.
         public static bool StartsHello(string s)
         {
-            // HINT: Use the string method "StartsWith".
-            // TODO: Implement this method.
-            bool doesMatch = true;
-            char[] twine = s.ToCharArray();
-            char[] g = {'H', 'e', 'l', 'l', 'o'};
-            for (int i = 0; i < g.Length; i++)
-            {
-                if (g[i] != twine[i])
-                {
-                    doesMatch = false;
-                    break;
-                }
-            }
-            return doesMatch;
+            // Simple and handles all situations regardless of casing 
+            return s.ToLower().StartsWith("hello");
         }
 
         // 6. Reverse a given string.
         public static string ReverseString(string s)
         {
             char[] charArray = s.ToCharArray();
-            // TODO: Reverse the charArray.
-            int arrayLength = charArray.Length;
-            char[] arr = new char[charArray.Length];
-            int o = 0;
-            for (int i = arrayLength - 1; i >= 0; i--)
-            {   
-                arr[o] = charArray[i];
-                o++;
-            }
-            return new string(arr);
+            Array.Reverse(charArray);
+            return new string(charArray);
         }
 
         // 7. Return the factorial of a number.
@@ -149,7 +116,7 @@ namespace NoviceChallenges
             // TODO: Calculate the factorial.
             for (int i = n - 1; i > 0; i--)
             {
-                fact = fact * i;
+                fact *= i;
             }
             return fact;
         }
@@ -174,10 +141,10 @@ namespace NoviceChallenges
             int b = 1;
             if (n <= 1) return n;
             // TODO: Calculate the nth Fibonacci number.
-            
-            for (int i = n-1; i > 0; i--)
+
+            for (int i = n - 1; i > 0; i--)
             {
-                fibNumber = a+b;
+                fibNumber = a + b;
                 a = b;
                 b = fibNumber;
             }
@@ -224,7 +191,7 @@ namespace NoviceChallenges
             // TODO: Calculate the sum of the array's elements.
             foreach (int number in numbers)
             {
-                sum+=number;
+                sum += number;
             }
             return sum;
         }
@@ -248,7 +215,7 @@ namespace NoviceChallenges
         // 14. Given two strings, return a new string that is the concatenation of the two strings with a space in between.
         public static string ConcatenateStrings(string str1, string str2)
         {
-            
+
             // TODO: Concatenate the two strings with a space in between.
             return str1 + " " + str2;
         }
@@ -263,7 +230,7 @@ namespace NoviceChallenges
             char[] newArr = charS;
             newArr[0] = lastChar;
             newArr[s.Length - 1] = firstChar;
-            
+
             // TODO: Swap the first and last characters and return the modified string.
             return new string(newArr);
         }
